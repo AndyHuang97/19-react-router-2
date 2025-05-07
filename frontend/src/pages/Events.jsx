@@ -22,8 +22,12 @@ export const loader = async () => {
   if (!response.ok) {
     // return { isError: true, message: "Could not fetch events."}
 
-    // react router forwards the error to closest error page
-    throw new Error("Could not fetch events.");
+    // React Router forwards the error to closest error page
+    // Use a Response as a return object to have the status field so that ErroPage
+    // can be a generic error handler
+    throw new Response(JSON.stringify({ message: "Could not fetch events." }), {
+      status: 500,
+    });
   } else {
     // const resData = await response.json();
     // return resData.events;
