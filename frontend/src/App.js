@@ -4,9 +4,9 @@ import HomePage from "./pages/Home";
 import EventsPage, { loader as eventLoader } from "./pages/Events";
 import EventDetailPage, {
   loader as eventDetailLoader,
-  action as deleteEventAction
+  action as deleteEventAction,
 } from "./pages/EventDetail";
-import NewEventPage, {action as newEventAction} from "./pages/NewEvent";
+import NewEventPage, { action as newEventAction } from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEvent";
 import EventsRootLayout from "./pages/EventsRoot";
 import ErrorPage from "./pages/Error";
@@ -62,13 +62,13 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetailPage />,
-                action: deleteEventAction
+                action: deleteEventAction,
               },
               { path: "edit", element: <EditEventPage /> },
             ],
           },
 
-          { path: "new", element: <NewEventPage />, action: newEventAction},
+          { path: "new", element: <NewEventPage />, action: newEventAction },
         ],
       },
     ],

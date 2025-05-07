@@ -1,8 +1,14 @@
-import { Form, useNavigate, useNavigation } from "react-router-dom";
+import {
+  Form,
+  useActionData,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 
 import classes from "./EventForm.module.css";
 
 function EventForm({ method, event }) {
+  const data = useActionData();
   const navigate = useNavigate();
   const navigation = useNavigation();
 
@@ -16,6 +22,13 @@ function EventForm({ method, event }) {
     // Form from react router makes sure that the data submitted is given to your action
     // Can use attribute action="/any-other-path" to send the action from another path
     <Form method='post' className={classes.form}>
+      {data && data.errors && (
+        <ul>
+          {Object.values(data.errors).map((err) => (
+            <li key={err}>{err}</li>
+          ))}
+        </ul>
+      )}
       <p>
         <label htmlFor='title'>Title</label>
         <input
