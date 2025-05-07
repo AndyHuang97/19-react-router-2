@@ -10,6 +10,7 @@ function EventForm({ method, event }) {
 
   return (
     // Form from react router makes sure that the data submitted is given to your action
+    // Can use attribute action="/any-other-path" to send the action from another path
     <Form method='post' className={classes.form}>
       <p>
         <label htmlFor='title'>Title</label>
